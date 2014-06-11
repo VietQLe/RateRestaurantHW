@@ -1,0 +1,31 @@
+<h1>Ratings of Restaurant</h1>
+
+
+
+<%= form_for Rating.new, url: '/add_post' do |f| %>
+
+	<%= f.radio_button(:rate, "1") %>
+	<%= f.label(:rate, "1") %>
+	<%= f.radio_button(:rate, "2") %>
+	<%= f.label(:rate, "2") %>
+	<%= f.radio_button(:rate, "3") %>
+	<%= f.label(:rate, "3") %>
+	<%= f.radio_button(:rate, "4") %>
+	<%= f.label(:rate, "4") %>
+	<%= f.radio_button(:rate, "5") %>
+	<%= f.label(:rate, "5") %>
+	<br/>
+	Comments: <%= f.text_field :comments %>
+	<%= f.submit 'Submit review!' %>
+
+<% end %>
+
+<ul>
+	<% @ratings.each do |review| %>
+		<li>
+			Rated: <%= review.rate %>
+			<br/>
+			Comments: <%= review.comments %>
+		</li>
+	<% end %>
+</ul>
